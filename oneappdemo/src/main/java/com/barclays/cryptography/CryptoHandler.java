@@ -1,4 +1,4 @@
-package com.barclays.Cryptography;
+package com.barclays.cryptography;
 
 import com.sun.org.apache.xml.internal.security.utils.Base64;
 import sun.misc.BASE64Decoder;
