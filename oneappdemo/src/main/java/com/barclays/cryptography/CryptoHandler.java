@@ -1,7 +1,10 @@
+
+
 package com.barclays.cryptography;
 
-import com.sun.org.apache.xml.internal.security.utils.Base64;
+
 import sun.misc.BASE64Decoder;
+import java.util.Base64;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
@@ -43,12 +46,14 @@ public class CryptoHandler {
         c.init(Cipher.ENCRYPT_MODE, key);
         byte[] encVal = c.doFinal(data.getBytes(StandardCharsets.UTF_8));
         byte[] ivBytes = c.getIV();
-        String ivVal = Base64.encode(ivBytes);
-        encryptedValues.add(ivVal);
-        String encryptedValue = Base64.encode(encVal);
-        encryptedValues.add(encryptedValue);
+        byte[] ivVal = Base64.getEncoder().encode(ivBytes);
+        encryptedValues.add(new String(ivVal));
+        byte[] encryptedValue = Base64.getEncoder().encode(encVal);
+        encryptedValues.add(new String(encryptedValue));
         return encryptedValues;
     }
 
 
 }
+
+

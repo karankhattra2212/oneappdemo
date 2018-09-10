@@ -3,7 +3,8 @@ package com.barclays.oneappdemo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+
+@SpringBootApplication(scanBasePackages = "com.barclays")
 public class OneappdemoApplication {
 
 	//This is a starting method.
@@ -11,3 +12,4 @@ public class OneappdemoApplication {
 		SpringApplication.run(OneappdemoApplication.class, args);
 	}
 }
+
