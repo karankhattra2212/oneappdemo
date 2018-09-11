@@ -17,7 +17,7 @@ public class OneAppRestController {
     @GetMapping(value = "/hello")
     public String getTermsAndCond() {
         System.out.print("Inside hello method!!!!!!!!!!!!!!!!");
-        return "hello";
+        return "hello World to Barclays";
     }
 
     @GetMapping(value = "/getName")
