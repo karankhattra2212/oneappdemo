@@ -18,7 +18,7 @@ public class CheckUpgradeDto {
     }
 
     public CheckUpgradeDto() {
-            }
+    }
 
     public void setvNumber(String vNumber) {
         this.vNumber = vNumber;

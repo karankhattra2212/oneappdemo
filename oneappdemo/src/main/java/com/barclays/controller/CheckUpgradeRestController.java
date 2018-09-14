@@ -2,9 +2,7 @@ package com.barclays.controller;
 
 import com.barclays.dao.CheckUpgradeDao;
 import com.barclays.dto.CheckUpgradeDto;
-import com.barclays.dto.OneAppDto;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,35 +14,34 @@ public class CheckUpgradeRestController {
         System.out.print("Inside hello method!!!!!!!!!!!!!!!!");
         return "helloTest";
     }
-   /* @RequestMapping(value = "/id")
 
-    String getIdByValue(@RequestParam("id") String personId) {
+    /* @RequestMapping(value = "/id")
 
-        System.out.println("ID is " + personId);
+     String getIdByValue(@RequestParam("id") String personId) {
 
-        return "Get ID from query string of URL with value element";
+         System.out.println("ID is " + personId);
 
-    }*/
-   @GetMapping(value = "/vNumberCheck/{vNumber}")
+         return "Get ID from query string of URL with value element";
 
-   public String vNumberCheck(CheckUpgradeDto checkUpgradeDto,CheckUpgradeDao checkUpgradeDao,@RequestParam ("vNumber") String vNumber) {
+     }*/
+    @GetMapping(value = "/vNumberCheck/{vNumber}")
 
-    System.out.print(checkUpgradeDto.getvNumber());
-       String test="Not find";
-      if(vNumber.equalsIgnoreCase(checkUpgradeDto.getvNumber()))
-       {
-           System.out.print(" if vNumber "+vNumber);
-test= checkUpgradeDto.getvNumber()+"you can proceed";
-       }else
-       {
-           System.out.print(" else vNumber "+vNumber);
+    public String vNumberCheck(CheckUpgradeDto checkUpgradeDto, CheckUpgradeDao checkUpgradeDao, @RequestParam("vNumber") String vNumber) {
 
-           test= checkUpgradeDto.getvNumber()+"Please update your app from play store";
+        System.out.print(checkUpgradeDto.getvNumber());
+        String test = "Not find";
+        if (vNumber.equalsIgnoreCase(checkUpgradeDto.getvNumber())) {
+            System.out.print(" if vNumber " + vNumber);
+            test = checkUpgradeDto.getvNumber() + "you can proceed";
+        } else {
+            System.out.print(" else vNumber " + vNumber);
 
-       }
+            test = checkUpgradeDto.getvNumber() + "Please update your app from play store";
+
+        }
 
 
-       return test;
-   }
+        return test;
+    }
 
 }

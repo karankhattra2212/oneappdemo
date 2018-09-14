@@ -6,3 +6,6 @@ insert into ADDRESS
 
  insert into DEVICE
                values(10003,'10001', '2','2004-12-31 11:11:11');
+
+ insert into DEVICE
+               values(20004,'10005', '2','2004-12-31 11:11:11');
