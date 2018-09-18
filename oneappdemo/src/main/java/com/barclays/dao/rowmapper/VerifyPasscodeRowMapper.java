@@ -1,6 +1,7 @@
 package com.barclays.dao.rowmapper;
 
 import com.barclays.dto.VerifyPasscode;
+import com.barclays.util.OneAppConstants;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
@@ -19,7 +20,7 @@ public class VerifyPasscodeRowMapper {
         @Override
         public VerifyPasscode mapRow(ResultSet rs, int rowNum) throws SQLException {
             VerifyPasscode verifyPasscode = new VerifyPasscode();
-            verifyPasscode.setCustomerId(String.valueOf(rs.getInt("CUSTOMERID")));
+            verifyPasscode.setCustomerId(String.valueOf(rs.getInt(OneAppConstants.StringConstants.COLUMN_CUSTOMERID.getValue())));
             return verifyPasscode;
         }
     }
@@ -31,7 +32,7 @@ public class VerifyPasscodeRowMapper {
         @Override
         public VerifyPasscode mapRow(ResultSet rs, int rowNum) throws SQLException {
             VerifyPasscode verifyPasscode = new VerifyPasscode();
-            verifyPasscode.setPasscode(rs.getString("PASSCODE"));
+            verifyPasscode.setPasscode(rs.getString(OneAppConstants.StringConstants.COLUMN_PASSCODE.getValue()));
             return verifyPasscode;
         }
     }
