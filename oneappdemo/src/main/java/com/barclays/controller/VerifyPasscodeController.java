@@ -1,7 +1,7 @@
 package com.barclays.controller;
 
-import com.barclays.dto.ReturnStatus;
 import com.barclays.dto.VerifyPasscode;
+import com.barclays.dto.VerifyPasscodeResponse;
 import com.barclays.repository.VerifyPasscodeRepository;
 import com.barclays.util.OneAppStatus;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,16 +18,21 @@ public class VerifyPasscodeController {
     VerifyPasscodeRepository repository;
 
     @PostMapping(value = "/verifyPasscode")
-    public ReturnStatus verifyEnteredPasscode(@RequestBody VerifyPasscode verifyPasscode) {
+    public VerifyPasscodeResponse verifyEnteredPasscode(@RequestBody VerifyPasscode verifyPasscode) {
+        VerifyPasscodeResponse response = new VerifyPasscodeResponse();
         if (isNull(verifyPasscode)) {
-            return OneAppStatus.getReturnStatus("999");
+            response.setReturnStatus(OneAppStatus.getReturnStatus("999"));
+
         }
 
         if (isValidPasscode(verifyPasscode)) {
-            return OneAppStatus.getReturnStatus("0000");
+            response.setReturnStatus(OneAppStatus.getReturnStatus("0000"));
+
         } else {
-            return OneAppStatus.getReturnStatus("999");
+            response.setReturnStatus(OneAppStatus.getReturnStatus("999"));
+
         }
+        return response;
     }
 
     private boolean isValidPasscode(VerifyPasscode verifyPasscode) {
