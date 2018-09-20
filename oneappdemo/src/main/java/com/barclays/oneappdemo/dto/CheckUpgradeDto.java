@@ -1,26 +1,33 @@
-package com.barclays.oneappdemo.dto;
+package com.barclays.dto;
 
 import org.springframework.stereotype.Component;
 
 @Component
 public class CheckUpgradeDto {
-    private String vNumber;
+    private double vNumber;
+    private Double vReq;
 
-    public String getvNumber() {
+    public Double getvNumber() {
         return vNumber;
+    }
+
+    public void setvNumber(Double vNumber) {
+        this.vNumber = vNumber;
+    }
+
+    public Double getvReq() {
+        return vReq;
     }
 
     @Override
     public String toString() {
-        return "CheckUpgrade{" +
-                "vNumber='" + vNumber + '\'' +
+        return "CheckUpgradeDto{" +
+                "vNumber=" + vNumber +
+                ", vReq=" + vReq +
                 '}';
     }
 
-    public CheckUpgradeDto() {
-    }
-
-    public void setvNumber(String vNumber) {
-        this.vNumber = vNumber;
+    public void setvReq(Double vReq) {
+        this.vReq = vReq;
     }
 }

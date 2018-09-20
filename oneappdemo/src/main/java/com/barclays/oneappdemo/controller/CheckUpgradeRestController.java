@@ -1,18 +1,27 @@
 package com.barclays.oneappdemo.controller;
 
-import com.barclays.oneappdemo.dao.CheckUpgradeDao;
-import com.barclays.oneappdemo.dto.CheckUpgradeDto;
+//import com.barclays.dao.CheckUpgradeDao;
+import com.barclays.dto.CheckUpgradeDto;
+import com.barclays.oneappdemo.service.CheckUpgradeService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class CheckUpgradeRestController {
+    @Autowired
+    private CheckUpgradeService checkUpgradeService;
+    @Autowired
+    private CheckUpgradeDto checkUpgradeDto;
 
     @GetMapping(value = "/TestRes")
-    public String getTermsAndCond() {
-        System.out.print("Inside hello method!!!!!!!!!!!!!!!!!!");
-        return "helloTest";
+    public CheckUpgradeDto getTermsAndCond() {
+        System.out.print("Inside hello method!!!!!!!!!!!!!!!!");
+        //  System.out.print("value is ************"+checkUpgradeService.getCheckUpgradeById());
+
+
+
+        return checkUpgradeService.getCheckUpgradeById();
     }
 
     /* @RequestMapping(value = "/id")
@@ -26,22 +35,26 @@ public class CheckUpgradeRestController {
      }*/
     @GetMapping(value = "/vNumberCheck/{vNumber}")
 
-    public String vNumberCheck(CheckUpgradeDto checkUpgradeDto, CheckUpgradeDao checkUpgradeDao, @RequestParam("vNumber") String vNumber) {
+    public CheckUpgradeDto vNumberCheck() {
 
-        System.out.print(checkUpgradeDto.getvNumber());
+        // System.out.print(checkUpgradeDto.getvNumber());
         String test = "Not find";
-        if (vNumber.equalsIgnoreCase(checkUpgradeDto.getvNumber())) {
-            System.out.print(" if vNumber " + vNumber);
-            test = checkUpgradeDto.getvNumber() + "you can proceed";
-        } else {
-            System.out.print(" else vNumber " + vNumber);
 
+         checkUpgradeDto=  checkUpgradeService.getCheckUpgradeById();
+        /*if (vNumberequalsIgnoreCase(checkUpgradeDto.getvReq())) {
+            returnStatus.setReturnCode("suggestion");
+            returnStatus.setReturnDescription("Please Upadte your application");
+            return returnStatus;
+        } else if(vNumber.equalsIgnoreCase(checkUpgradeDto.getvReq()
+                )){
+            System.out.print(" else vNumber " + vNumber);
+            Mandatory
             test = checkUpgradeDto.getvNumber() + "Please update your app from play store";
 
-        }
+        }*/
 
 
-        return test;
+        return checkUpgradeDto;
     }
 
 }

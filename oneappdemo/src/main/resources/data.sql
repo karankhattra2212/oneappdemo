@@ -17,3 +17,6 @@ insert into ADDRESS
 -----------------Terms and Condition data-----------------------------
 insert into app_tnc
        values (1,'These are the Terms of your Virgin Essential Current Account. These Terms, along with our Welcome guide, make up our agreement with you.We give you a copy of both of these documents when you open your account. You can also get copies on our website or by calling us. We will give you a copy of any additional Terms that apply when you take out the account or service. If there is any inconsistency between any additional Terms and these Terms, the additional Term apply. 1 Who provide the account? We are Virgin money pic.',sysdate);
+
+insert into CONFIGINFO
+               values(1,'2.02','2.0');

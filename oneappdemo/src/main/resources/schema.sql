@@ -56,6 +56,9 @@ CREATE TABLE STATUS(
        last_modified_date timestamp(6) default sysdate
      );
 
+CREATE TABLE "CONFIGINFO"
+   (	"CONFIGID" integer not null,
+	"VERRUN" FLOAT,
+	"VERREQ" FLOAT
 
-
-
+   ) ;
