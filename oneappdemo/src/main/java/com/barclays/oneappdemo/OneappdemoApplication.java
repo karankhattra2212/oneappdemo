@@ -9,6 +9,7 @@ public class OneappdemoApplication {
 
 	//This is a starting method.
 	public static void main(String[] args) {
+
 		SpringApplication.run(OneappdemoApplication.class, args);
 	}
 }

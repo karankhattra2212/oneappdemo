@@ -1,7 +1,7 @@
 
 
 CREATE TABLE CUSTOMER (
-   CUSTOMERID integer not null,
+   CUSTOMERID varchar2(50) not null,
 	TITLE varchar(255) not null,
 	FIRSTNAME varchar(255),
 	MIDDLENAME varchar(50),
@@ -21,7 +21,7 @@ CREATE TABLE CUSTOMER (
 
    CREATE TABLE ADDRESS (
     ADDRESSID integer not null,
-   	CUSTOMERID integer not null ,
+   	CUSTOMERID varchar2(50) not null,
    	FROMDATE varchar(50),
    	TODATE varchar(50),
    	COUNTRY varchar(20),
@@ -35,7 +35,7 @@ CREATE TABLE CUSTOMER (
 
       CREATE TABLE DEVICE (
          DEVICEID integer not null,
-      	CUSTOMERID integer,
+      	CUSTOMERID varchar2(50),
       	APPVERSION integer,
       	LASTMODIFIED TIMESTAMP(6)
          );
@@ -45,6 +45,16 @@ CREATE TABLE STATUS(
       RETURN_STATUS varchar2(50),
       RETURN_DESC varchar2(200)
 );
+
+ -------------Alter table Device for indicating foreign key-------------
+    alter table device add constraint FK3kcl3wpic0bcwu2x204mekviy foreign key (customerid) references customer ;
+
+    -------------Terms and Conditions Table -------------------
+     CREATE TABLE app_tnc
+     ( term_id INT PRIMARY KEY,
+       term_desc VARCHAR2(1000),
+       last_modified_date timestamp(6) default sysdate
+     );
 
 
 
