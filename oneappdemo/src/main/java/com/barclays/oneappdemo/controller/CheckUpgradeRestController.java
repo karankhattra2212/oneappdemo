@@ -11,7 +11,7 @@ public class CheckUpgradeRestController {
 
     @GetMapping(value = "/TestRes")
     public String getTermsAndCond() {
-        System.out.print("Inside hello method!!!!!!!!!!!!!!!!");
+        System.out.print("Inside hello method!!!!!!!!!!!!!!!!!!");
         return "helloTest";
     }
 
