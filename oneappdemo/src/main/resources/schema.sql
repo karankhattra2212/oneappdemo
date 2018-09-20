@@ -40,6 +40,11 @@ CREATE TABLE CUSTOMER (
       	LASTMODIFIED TIMESTAMP(6)
          );
 
+CREATE TABLE STATUS(
+      RETURN_CODE varchar2(10),
+      RETURN_STATUS varchar2(50),
+      RETURN_DESC varchar2(200)
+);
 
 
 

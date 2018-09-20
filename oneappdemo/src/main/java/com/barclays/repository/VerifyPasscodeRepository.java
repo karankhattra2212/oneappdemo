@@ -21,7 +21,7 @@ public class VerifyPasscodeRepository {
     }
 
     public String getPasscodeByCustomerId(long customerId) {
-        VerifyPasscode verifyPasscode = jdbcTemplate.queryForObject(SQLQueries.QUERY_GET_CUSTOMER_ID_BY_DEVICE_ID.getQuery(),
+        VerifyPasscode verifyPasscode = jdbcTemplate.queryForObject(SQLQueries.QUERY_GET_PASCCODE_BY_CUSTOMEE_ID.getQuery(),
                 new Object[]{customerId},
                 new VerifyPasscodeRowMapper.GetPasscodeByCustomerIdRowMapper());
         return verifyPasscode.getPasscode();

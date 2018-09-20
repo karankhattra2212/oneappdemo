@@ -17,20 +17,22 @@ public class VerifyPasscodeController {
 
     @Autowired
     VerifyPasscodeRepository repository;
+    @Autowired
+    OneAppStatus status;
 
     @PostMapping(value = "/verifyPasscode")
     public VerifyPasscodeResponse verifyEnteredPasscode(@RequestBody VerifyPasscode verifyPasscode) {
         VerifyPasscodeResponse response = new VerifyPasscodeResponse();
         if (isNull(verifyPasscode)) {
-            response.setReturnStatus(OneAppStatus.getReturnStatus(StringConstants.DEFAULT_ERROR_CODE.getValue()));
+            response.setReturnStatus(status.getReturnStatus(StringConstants.DEFAULT_ERROR_CODE.getValue()));
 
         }
 
         if (isValidPasscode(verifyPasscode)) {
-            response.setReturnStatus(OneAppStatus.getReturnStatus(StringConstants.DEFAULT_SUCCESS_CODE.getValue()));
+            response.setReturnStatus(status.getReturnStatus(StringConstants.DEFAULT_SUCCESS_CODE.getValue()));
 
         } else {
-            response.setReturnStatus(OneAppStatus.getReturnStatus(StringConstants.DEFAULT_ERROR_CODE.getValue()));
+            response.setReturnStatus(status.getReturnStatus(StringConstants.DEFAULT_ERROR_CODE.getValue()));
 
         }
         return response;

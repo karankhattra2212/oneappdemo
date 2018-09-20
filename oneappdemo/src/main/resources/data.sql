@@ -9,3 +9,9 @@ insert into ADDRESS
 
  insert into DEVICE
                values(20004,'10005', '2','2004-12-31 11:11:11');
+
+ insert into STATUS
+               values('0000','Success','Your request have been successfully submitted');
+
+ insert into STATUS
+               values('999','Error','An error occurred. Please try again later.');

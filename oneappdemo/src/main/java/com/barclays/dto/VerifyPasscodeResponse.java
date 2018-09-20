@@ -1,5 +1,7 @@
 package com.barclays.dto;
 
+import com.barclays.common.dto.ReturnStatus;
+
 public class VerifyPasscodeResponse {
 
     private ReturnStatus returnStatus;
