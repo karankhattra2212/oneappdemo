@@ -7,7 +7,6 @@ import com.barclays.oneappdemo.dto.CustomerDTO;
 import com.barclays.oneappdemo.dto.DeviceDTO;
 import com.barclays.oneappdemo.dto.ErrorDetailsDTO;
 import com.barclays.oneappdemo.service.DeviceService;
-import com.barclays.oneappdemo.util.OneAppUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -39,7 +38,7 @@ public class OneAppRestController extends ResponseEntityExceptionHandler {
 
     @PostMapping(value = "/saveTermsAndCond")
     public ResponseEntity<String> saveTermsAndCond(@Valid @RequestBody DeviceDTO device){
-        if(deviceService.CheckDeviceID(device.getDeviceid())){
+        if(deviceService.checkDeviceID(device.getDeviceid())){
 
             CustomerDTO cust = new CustomerDTO();
             cust.setCustomerid(com.barclays.oneappdemo.util.OneAppUtil.generateCustID(device.getDeviceid()));

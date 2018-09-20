@@ -5,12 +5,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class DeviceService {
 
-    public boolean CheckDeviceID(int ID) {
-
+    public boolean checkDeviceID(int ID) {
+        boolean flag = false;
         if( ID != 0){
-            return true;
+            flag =  true;
         }
-
-    return false;
+            return flag;
     }
 }

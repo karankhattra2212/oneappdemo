@@ -28,7 +28,6 @@ public class OneAppDaoDevice {
         public DeviceDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
              DeviceDTO device = new DeviceDTO();
              device.setDeviceid(rs.getInt(1));
-             //device.setCustomer(rs.getString(2));
              device.setAppversion(rs.getInt(3));
              device.setLastmodified(rs.getTimestamp(4));
              return device;
