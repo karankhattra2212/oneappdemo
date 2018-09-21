@@ -6,6 +6,7 @@ import com.barclays.oneappdemo.dao.OneAppDaoTnC;
 import com.barclays.oneappdemo.dto.CustomerDTO;
 import com.barclays.oneappdemo.dto.DeviceDTO;
 import com.barclays.oneappdemo.dto.ErrorDetailsDTO;
+import com.barclays.oneappdemo.request.DeviceRequest;
 import com.barclays.oneappdemo.service.DeviceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -37,19 +38,24 @@ public class OneAppRestController extends ResponseEntityExceptionHandler {
 
 
     @PostMapping(value = "/saveTermsAndCond")
-    public ResponseEntity<String> saveTermsAndCond(@Valid @RequestBody DeviceDTO device){
+    public ResponseEntity<String> saveTermsAndCond(@Valid @RequestBody DeviceRequest device){
         if(deviceService.checkDeviceID(device.getDeviceid())){
 
             CustomerDTO cust = new CustomerDTO();
+            DeviceDTO deviceDTO = new DeviceDTO();
+
             cust.setCustomerid(com.barclays.oneappdemo.util.OneAppUtil.generateCustID(device.getDeviceid()));
             cust.setTitle("NA");
             cust.setTnc('Y');
             cust.setState("Active");
-            device.setCustomer(cust);
+            deviceDTO.setDeviceid(device.getDeviceid());
+            deviceDTO.setLastmodified(new Timestamp(System.currentTimeMillis()));
+            deviceDTO.setCustomer(cust);
+
             device.setLastmodified(new Timestamp(System.currentTimeMillis()));
 
             customerJPARepository.save(cust);
-            deviceJPARepository.save(device);
+            deviceJPARepository.save(deviceDTO);
 
             return ResponseEntity.status(HttpStatus.CREATED).build();
         }
